@@ -42,3 +42,14 @@ body {
   color: #fffcd3;
   padding: 20px;
 }
+
+.footer {
+  height: 50px;
+  background: rgba(0,0,0,0.6);
+  color: #0275d8;
+}
+
+.footer-text {
+  padding-top: 10px;
+  text-align: center;
+}
