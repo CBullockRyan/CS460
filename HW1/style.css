@@ -1,0 +1,44 @@
+body {
+  padding-top: 55px; /* to make sure the content doesnt run into the navbar */
+  background-color: #2D2A33;
+}
+
+.navbar.transparent {
+   background: rgba(0,0,0,0.6);
+}
+
+.home-img {
+  object-fit: cover;
+  /* Full width*/
+  width: 100%;
+  height: 600px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+
+.content {
+  background-attachment: scroll;
+  height:1000px;
+  font-size:16px;
+  color: #fffcd3;
+  padding: 20px;
+}
