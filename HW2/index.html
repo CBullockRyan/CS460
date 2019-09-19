@@ -21,16 +21,21 @@
 		<form id='initiative'>
 			<p>Name: <input class='form-control' type='text' name='Name' required /></p>
 			<p>Dexterity: <input class='form-control' type='number' name='Dex' required /></p>
-			<p><input class='btn btn-outline-info'  onclick="calculateInit()" type='submit' /></p>
+			<p><button class='btn btn-outline-info'  onclick="calculateInit()" type='button'>Roll Initiative</button></p>
 		</form>
 	</div>
 	<div class = "col-sm-6">
 		<h2>Current Initiatives for Combat</h2>
-		<table cellspacing="40" id="myTable">
-  		<tr>
-    		<td>Character</td>
-    		<td>Initiative</td>
-  		</tr>
+		<table class="table table-striped table-dark" id="myTable">
+			<thead>
+    		<tr>
+      		<th scope="col">Character</th>
+      		<th scope="col">Initiative</th>
+    		</tr>
+  		</thead>
+  		<tbody>
+				<!-- body to be added by javascript function -->
+			</tbody>
 		</table>
 	</div>
 
@@ -46,10 +51,18 @@
 		// generate number between 1 and 20 for initiative roll
 		var roll = Math.ceil(Math.random() * 20);
 
-		//calculate final initiative and display to User
+		//calculate final initiative and add to table
 		var init = roll + dex;
-		document.write(name + " has an initiative of " + init);
-		window.alert(name + " has an initiative of " + init);
+		addRow(name, init);
+	}
+
+	function addRow(character, initiative){
+		var table = document.getElementById("myTable");
+  	var row = table.insertRow(-1);
+  	var cell1 = row.insertCell(0);
+  	var cell2 = row.insertCell(1);
+  	cell1.innerHTML = character;
+  	cell2.innerHTML = initiative;
 	}
 	</script>
 </div>
