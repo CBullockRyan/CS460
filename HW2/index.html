@@ -4,20 +4,61 @@
 
 <head>
 	<title>Homepage</title>
-	<!-- INSERT BOOTSTRAP HERE -->
-	
+	<!-- Bootstrap Stylesheet and JS links, v4 -->
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+
 	<!-- PERSONAL STYLESHEET -->
-	<link rel = "stylsheet" type = "text/css" href = "styles.css">
+	<link rel = "stylesheet" type = "text/css" href = "styles.css">
 
 </head>
 
 <body>
-
-<footer class="footer">
-	<div class = "footer-text">
-		Created by Cassidy Ryan
+	<div class = "content row">
+	<div class = "col-sm-6">
+		<h2>Enter Player Information to Generate Initiative</h2>
+		<form id='initiative'>
+			<p>Name: <input class='form-control' type='text' name='Name' required /></p>
+			<p>Dexterity: <input class='form-control' type='number' name='Dex' required /></p>
+			<p><input class='btn btn-outline-info'  onclick="calculateInit()" type='submit' /></p>
+		</form>
 	</div>
-</footer>
+	<div class = "col-sm-6">
+		<h2>Current Initiatives for Combat</h2>
+		<table cellspacing="40" id="myTable">
+  		<tr>
+    		<td>Character</td>
+    		<td>Initiative</td>
+  		</tr>
+		</table>
+	</div>
+
+	<script>
+	function calculateInit(){
+		// get form information
+		var name = document.forms["initiative"]["Name"].value;
+		var dex = document.forms["initiative"]["Dex"].value;
+
+		// turn dexterity into dex modifier
+		dex = Math.floor((dex - 10)/2);
+
+		// generate number between 1 and 20 for initiative roll
+		var roll = Math.ceil(Math.random() * 20);
+
+		//calculate final initiative and display to User
+		var init = roll + dex;
+		document.write(name + " has an initiative of " + init);
+		window.alert(name + " has an initiative of " + init);
+	}
+	</script>
+</div>
+
+	<footer class="footer">
+		<div class = "footer-text">
+			Created by Cassidy Ryan
+			</div>
+	</footer>
 
 </body>
 
